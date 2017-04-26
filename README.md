@@ -30,7 +30,7 @@
 
 Инструкции
 
-localhost:5000/api/register - создание пользователя
+localhost:5000/api/register - создание пользователя                                                           
 localhost:5000/api/login - логин, возвращает token, который используется во всех остальных методах как параметр header Authorization
 
 
