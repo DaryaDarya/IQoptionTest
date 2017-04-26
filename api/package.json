@@ -1,0 +1,30 @@
+{
+  "name": "movies",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaryaDarya/IQoptionTest.git"
+  },
+  "author": "Darya Shemyakina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DaryaDarya/IQoptionTest/issues"
+  },
+  "homepage": "https://github.com/DaryaDarya/IQoptionTest#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "jsonwebtoken": "^7.4.0",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
+    "passport-local": "^1.0.0",
+    "pg-promise": "^5.6.7"
+  }
+}
