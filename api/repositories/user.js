@@ -1,18 +1,23 @@
-const config = require("../config/config");
-const promise = require("bluebird");
-const pgp = require("pg-promise")({promiseLib: promise});
-const db = pgp(config.db);
 const bcrypt = require('bcryptjs');
+
+module.exports = function(dbConnection){
+	db = dbConnection;
+	return {
+		get: get,
+		register: register,
+		login: login
+	}
+}
 
 function getByUsername(username){
 	return db.oneOrNone("SELECT * FROM users WHERE username = $1", [username]);	
 }
 
-exports.get = function(id){
+function get(id){
 	return db.oneOrNone("SELECT * FROM users WHERE id = $1", [id]);	
 }
 
-exports.register = function(username, password){
+function register(username, password){
 	console.log(username, password);
 	return getByUsername(username)
 		.then(user => {
@@ -30,7 +35,7 @@ exports.register = function(username, password){
 		})
 }
 
-exports.login = function(username, password){
+function login(username, password){
 	console.log(username, password);
 	return getByUsername(username)
 		.then(user => {
@@ -40,9 +45,7 @@ exports.login = function(username, password){
 			}else{
 				console.log(user);
 				var hash = user.password.trim();
-				console.log(hash, hash.length);
 				var result = bcrypt.compareSync(password, hash);
-				console.log(result);
 				if (result) {
 		            return user;
 		        } else {
