@@ -1,4 +1,4 @@
-# IQoptionTest
+﻿# IQoptionTest
 Используемые средства: NodeJs(v6), Postgresql, Redis
 
 Система должна состоять из 2-х компонентов.
@@ -24,3 +24,17 @@
 - статистика по фильмам в разрезе жанр с группировкой количеству с фильтром по жанру
 
 - статистика по фильмам в разрезе жанр с группировкой по рейтингу(средняя) с фильтром по жанру
+
+
+Инструкции
+
+localhost:5000/api/register - создание пользователя
+localhost:5000/api/login - логин, возвращает token, который используется во всех остальных методах как параметр header Authorization
+
+Примеры запросов:
+
+localhost:5000/api/getMovies?name=по&genre=боевик&sorting=asc
+localhost:5000/api/getMovies
+localhost:5000/api/getYears?startYear=1980&endYear=1995
+localhost:5000/api/getGenresCount?genre=ия
+localhost:5000/api/getGenresRating?genre=ия

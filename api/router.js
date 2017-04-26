@@ -4,7 +4,7 @@ module.exports = function(express, passport, userController, movieController){
 
 	apiRoutes.post('/register', userController.register);
 
-	apiRoutes.post('/authenticate', userController.login);
+	apiRoutes.post('/login', userController.login);
 
 	apiRoutes.get('/getMovies', passport.authenticate('jwt', { session: false }), movieController.getMovies);
 
@@ -14,10 +14,7 @@ module.exports = function(express, passport, userController, movieController){
 
 	apiRoutes.get('/getGenresRating', passport.authenticate('jwt', { session: false }), movieController.getGenresRating);
 
-	apiRoutes.get('/logout', function(req, res){
-	  req.logout();
-	  res.redirect('/');
-	});
+	apiRoutes.get('/logout', userController.logout);
 
 	return apiRoutes;
 }

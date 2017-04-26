@@ -1,12 +1,14 @@
 const jwt = require('jsonwebtoken');
 const config = require('../config/config');
-var User;
+var User, redisClient;
 
-module.exports = function(userRepository){
+module.exports = function(userRepository, redis){
+	redisClient = redis;
 	User = userRepository;
 	return {
 		login: login,
-		register: register
+		register: register,
+		logout: logout
 	}
 }
 
@@ -43,4 +45,11 @@ function register(req, res) {
 				res.json({ success: false, message: 'That username address already exists.'});
 			})
   	}
+}
+
+function logout(req, res){
+	redisClient.set(req.headers.authorization, true, () =>{
+		req.logout();
+		res.sendStatus(200);
+	});
 }
