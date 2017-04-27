@@ -28,16 +28,16 @@
 
 
 
-Инструкции
+# Инструкции
 
 localhost:5000/api/register - создание пользователя                                                           
 localhost:5000/api/login - логин, возвращает token, который используется во всех остальных методах как параметр header Authorization
 
 
-Примеры запросов:
+### Примеры запросов:
 
-localhost:5000/api/getMovies?name=по&genre=боевик&sorting=asc
-localhost:5000/api/getMovies
-localhost:5000/api/getYears?startYear=1980&endYear=1995
-localhost:5000/api/getGenresCount?genre=ия
+localhost:5000/api/getMovies?name=по&genre=боевик&sorting=asc                                
+localhost:5000/api/getMovies                                                          
+localhost:5000/api/getYears?startYear=1980&endYear=1995                                                          
+localhost:5000/api/getGenresCount?genre=ия                                                         
 localhost:5000/api/getGenresRating?genre=ия
